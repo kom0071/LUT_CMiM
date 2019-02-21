@@ -31,7 +31,7 @@ function result = adaptive_integration(f, a, b, eps, method)
         fprintf('Method is not correct, your method input method is: %.1f, incorrect method. \n ', method) 
     end    
     
-    fprintf('Result is: %.10f and Number of elements are: %.0f and Error is: %.10f.\n', result(c), n(c), error(c))
+    fprintf('Result is: %.10f and Number of elements are: %.0f and Error is: %.15f.\n', result(c), n(c), error(c))
     
     semilogy (n,error)
     xlabel('Numbers of elements')
