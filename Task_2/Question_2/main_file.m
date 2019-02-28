@@ -3,7 +3,7 @@ clc
 clear all
 close all
 
-f = @(x) x^(1/2);
+f = @(x) x^(2);
 a = 0;
 b = 2;
 method = input('Select to method for calculate -> 1 is Midpoint, 0 is Trapezoidal:');
