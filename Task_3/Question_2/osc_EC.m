@@ -1,9 +1,9 @@
 clc
 close all
 
-omega = 2;
+omega = 5;
 P = 2*pi/omega;
-dt = P/20;
+dt = P/60;
 T = 3*P;
 N_t = floor(T/dt);
 t = linspace(0, N_t*dt, N_t+1);
@@ -21,6 +21,16 @@ for n = 1:N_t
     u(n+1) = u(n) + dt*v(n+1);
 end
 
-plot(t, u, 'b-', t, X_0*cos(omega*t), 'r--');
-legend('numerical', 'exact','location','northwest');
-xlabel('t');
+% plot(t, u, 'b-', t, X_0*cos(omega*t), 'r--');
+% legend('numerical', 'exact','location','northwest');
+% xlabel('t');
+
+[ep, ec] = osc_energy(u, v, omega);
+sum_e = ec + ep;
+plot(t,sum_e)
+hold on
+plot(t,ep)
+plot(t,ec)
+legend('Sum energy', 'Potencial energy', 'Kinetic energy')
+xlabel('t [s]')
+ylabel('Energy [J]')
