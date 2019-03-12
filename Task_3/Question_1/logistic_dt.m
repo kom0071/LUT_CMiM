@@ -1,5 +1,4 @@
 clc
-clear all
 close all
 
 % Intup data
