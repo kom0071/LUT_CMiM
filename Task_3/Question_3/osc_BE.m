@@ -1,6 +1,7 @@
 clc
 close all
 
+% Input data
 omega = 5;
 P = 2*pi/omega;
 dt = P/2000;
