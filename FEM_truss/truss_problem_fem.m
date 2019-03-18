@@ -7,8 +7,8 @@ close all
 E=70000; A=300; EA=E*A;
 
 % generation of coordinates and connectivities
-elementNodes=[ 1 2;1 3;2 3;2 4;1 4;3 4;3 6;4 5;4 6;3 5;5 6];
-nodeCoordinates=[ 0 0;0 3000;3000 0;3000 3000;6000 0;6000 3000];
+elementNodes=[ 1 2;1 3;2 3;2 4;1 4;3 4;3 6;4 5;4 6;3 5;5 6;6 7;7 8;5 8;6 8;5 7];
+nodeCoordinates=[ 0 0;0 3000;3000 0;3000 3000;6000 0;6000 3000;9000 0;9000 3000];
 numberElements=size(elementNodes,1);
 numberNodes=size(nodeCoordinates,1);
 xx=nodeCoordinates(:,1);
@@ -31,7 +31,7 @@ force(12)=-50000;
 [stiffness]=formStiffness2Dtruss(GDof,numberElements,elementNodes,numberNodes,nodeCoordinates,xx,yy,EA);
 
 % boundary conditions and solution
-prescribedDof=[1 2 10]';
+prescribedDof=[1 2 13 14]';
 
 % solution
 displacements=solution(GDof,prescribedDof,stiffness,force);
@@ -48,7 +48,7 @@ dispNorm=max(sqrt(XX.^2+YY.^2));
 scaleFact=2*dispNorm;
 clf
 hold on
-drawingMesh(nodeCoordinates+scaleFact*[XX YY],elementNodes,'k.-');
+drawingMesh(nodeCoordinates+scaleFact*[XX YY],elementNodes,'r.-');
 drawingMesh(nodeCoordinates,elementNodes,'k.--');
 
 % output displacements/reactions
