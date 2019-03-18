@@ -1,3 +1,5 @@
+%Function for calculate energy
+
 function [ep, ec] = osc_energy(u, v, omega)
 
 ep = 1/2*omega.^2*u.^2;

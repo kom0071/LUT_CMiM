@@ -5,7 +5,7 @@ function result = adaptive_integration(f, a, b, eps, method)
     n(1,c) = 1;
     initial_integration = 0;
     
-    if method == 1
+    if method == 1 % Choose method
         result(1, c) = midpoint(f, a, b, n(1,c));
         error = result(1) - initial_integration;
         while eps < error
@@ -15,7 +15,7 @@ function result = adaptive_integration(f, a, b, eps, method)
             error(1, c) = abs(result(c) - result(c-1));       
         end
           
-    elseif method == 0
+    elseif method == 0 %Choose method
         result(1,c) = trapezoidal(f, a, b, n(1,c)); 
         error = result(1) - initial_integration;
         while eps < error
