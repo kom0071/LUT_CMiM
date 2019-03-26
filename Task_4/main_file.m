@@ -45,19 +45,21 @@ F=@(ac) [a*cos(phi(i))*omega^2-b*cos(x(1,i))*(v(1,i))^2-b*sin(x(1,i))*ac(1)-ac(2
 end
 
 %rod kinematics plot
-figure
+figure('DefaultAxesFontSize',8)
 plot(t,x(1,:))
 hold on
 plot(t,v(1,:))
 plot(t,ac(1,:))
+xlabel('Time [s]')
 legend('Angle [-]','Angular veloctity [rad/s]','Angular acceleration [rad/2^2]')
 
 %piston kinematics plot
-figure
+figure('DefaultAxesFontSize',8)
 plot(t,x(2,:))
 hold on
 plot(t,v(2,:))
 plot(t,ac(2,:))
+xlabel('Time [s]')
 legend('Displacement [m]','Velocity [m/s]','Acceleration [m/s^2]')
 
 
