@@ -1,14 +1,14 @@
 close all
 clc
 
-%Initials conditions
+%Iniatials conditions
 a=0.1;
 b=0.2;
 t=linspace(0,10,100);
 omega=1;
 phi= (pi/6)+omega.*t;
 
-%Estimation for Newton-Raphson’s method 
+%Estimate for Newton-Raphson’s method 
 x_i=[0.5;1];
 
 %Accuracy
@@ -38,8 +38,8 @@ F=@(v) [-a*sin(phi(i))*omega-b*sin(x(1,i))*v(1)-v(2);
 
 % Equations of acceleration
 % a(1)=theta double prime (accel), a(2)=piston accel    
-F=@(ac) [a*cos(phi(i))*omega^2-b*cos(x(1,i))*(v(1,i))^2-b*sin(x(1,i))*ac(1)-ac(2);
-        a*sin(phi(i))*omega^2+b*sin(x(1,i))*(v(1,i))^2-b*cos(x(1,i))*ac(1)];
+F=@(ac) [-a*cos(phi(i))*omega^2-b*cos(x(1,i))*(v(1,i))^2-b*sin(x(1,i))*ac(1)-ac(2);
+        -a*sin(phi(i))*omega^2+b*sin(x(1,i))*(v(1,i))^2-b*cos(x(1,i))*ac(1)];
    
 [ac(:,i),~] = NR_method(F, J, x_i, eps);
 end
